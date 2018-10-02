@@ -2,7 +2,7 @@
 
 DS & ADA Questions
 
-##How To Contribute
+## How To Contribute
 If you are a programmer , you must have solved a sorting question!
 
 -Go to the repo and find a Data Structure or ADA question that is not available there already.
