@@ -1,0 +1,139 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+int info;
+struct node*next;
+};
+typedef struct node NODE;
+NODE* create(NODE * start){
+int n;
+NODE *prev,*newnode;
+do{
+newnode=(NODE*)malloc(sizeof(NODE));
+printf("Enter info. part");
+scanf("%d",&newnode->info);
+newnode->next=NULL;
+if(start==NULL){
+start=newnode;
+}
+else{
+prev->next=newnode;
+}
+prev=newnode;
+printf("Do you want to continue?");
+scanf("%d",&n);
+}while(n!=0);
+return start;
+}
+void display(NODE* start){
+while(start!=NULL){
+printf("%d",start->info);
+start=start->next;
+}
+}
+NODE* insertbeg(NODE *start){
+NODE *newnode;
+newnode=(NODE*)malloc(sizeof(NODE));
+printf("Enter info. for the node");
+scanf("%d",&newnode->info);
+newnode->next=start;
+start=newnode;
+return start;
+}
+void insertlast(NODE *start){
+NODE*newnode;
+newnode=(NODE*)malloc(sizeof(NODE));
+printf("Enter info. for the node");
+scanf("%d",&newnode->info);
+while(start->next!=NULL){
+start=start->next;
+}
+start->next=newnode;
+newnode->next=NULL;
+}
+void insertbw(NODE* start,int val){
+NODE*newnode,*temp;
+newnode=(NODE*)malloc(sizeof(NODE));
+printf("Enter info. for the node");
+scanf("%d",&newnode->info);
+while(start->info!=val){
+start=start->next;
+}
+temp=start->next;
+start->next=newnode;
+newnode->next=temp;
+}
+NODE* deletebeg(NODE* start){
+NODE *temp;
+temp=start->next;
+free(start);
+start=temp;
+return start;
+}
+void deletelast(NODE* start){
+NODE* temp;
+while(start->next!=NULL){
+temp=start;
+start=start->next;
+}
+temp->next=NULL;
+free(start);
+}
+void deletebw(NODE* start,int val){
+NODE* temp;
+while(start->info!=val){
+temp=start;
+start=start->next;
+}
+temp->next=start->next;
+free(start);
+}
+void search(NODE* start){
+int val,flag=0;
+printf("Enter value to be searched");
+scanf("%d",&val);
+while(start!=NULL){
+if(start->info==val){
+printf("value found");
+return;
+}
+start=start->next;
+}
+printf("value not found");
+}
+void main(){
+NODE* start=NULL;
+int c,item;
+do{
+printf("Enter your choice\n1.create\n.display\n3.insertbeg\n4.insertlast\n5.insertbw\n6.deletebeg\n7.deletelast\n8.deletebw\9.search\n10.exit");
+scanf("%d",&c);
+switch(c){
+case 1:start=create(start);
+       break;
+case 2:display(start);
+       break;
+case 3:start=insertbeg(start);
+       break;
+case 4:insertlast(start);
+       break;
+case 5:printf("enter value after which a newnode has to be inserted");
+       scanf("%d",&item);
+       insertbw(start,item);
+       break;
+case 6:start=deletebeg(start);
+       break;
+case 7:deletelast(start);
+       break;
+case 8:printf("Enter value of the node which needs to be deleted");
+       scanf("%d",&item);
+       deletebw(start,item);
+       break;
+case 9:search(start);
+       break;
+case 10:exit(0);
+        break;
+default:printf("Invalid choice");
+        break;
+}
+}while(c!=10);
+}
