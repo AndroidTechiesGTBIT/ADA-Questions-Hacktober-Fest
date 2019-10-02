@@ -4,7 +4,6 @@
 #include <vector>
 using namespace std;
 
-// Part of Cosmos by OpenGenus Foundation
 // Function to sort arr[] of size n using bucket sort
 void bucketSort(vector<float>& arr)
 {
