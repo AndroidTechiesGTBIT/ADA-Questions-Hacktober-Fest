@@ -72,7 +72,6 @@ for(long long i=0;i<n;i++)
 
 
     a=((a%mod)+(ans[i]%mod))%mod;
-    //cout<<ans[i]<<"\n";
 }
 cout<<a<<"\n";
     }
