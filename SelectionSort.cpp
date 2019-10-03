@@ -10,8 +10,9 @@ int main()
    printf("Enter %d integers\n", n);
  
    for ( c = 0 ; c < n ; c++ )
+   {
       scanf("%d", &array[c]);
- 
+   }
    for ( c = 0 ; c < ( n - 1 ) ; c++ )
    {
       position = c;
@@ -28,11 +29,12 @@ int main()
          array[position] = swap;
       }
    }
- 
    printf("Sorted list in ascending order:\n");
  
    for ( c = 0 ; c < n ; c++ )
+   {
       printf("%d\n", array[c]);
+   }
  
    return 0;
 }
