@@ -1,0 +1,33 @@
+  
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int kad(int *a,int n)
+
+{
+    int ma=INT_MIN,sum=0;
+    for(int i=0;i<n;i++)
+    {
+        sum+=a[i];
+         ma=max(ma,sum);
+        if(sum<0)
+        sum=0;
+       
+    }
+    return ma;
+}
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n;
+	    cin>>n;
+	    int *a =new int[n];
+	    for(int i=0;i<n;i++)cin>>a[i];
+	    cout<<kad(a,n)<<'\n';
+	}
+	return 0;
+}
