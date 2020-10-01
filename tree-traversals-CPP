@@ -1,0 +1,84 @@
+#include <iostream> 
+using namespace std; 
+
+/* structure of binary tree node which has data, pointer to left child 
+and a pointer to right child */
+struct Node 
+{ 
+	int data; 
+	struct Node* left, *right; 
+	Node(int data) 
+	{ 
+		this->data = data; 
+		left = right = NULL; 
+	} 
+}; 
+
+/* "bottom-up" postorder traversal. */
+void printPostorder(struct Node* node) 
+{ 
+	if (node == NULL) 
+		return; 
+
+	// left subtree 
+	printPostorder(node->left); 
+
+	// right subtree 
+	printPostorder(node->right); 
+
+	// node 
+	cout << node->data << " "; 
+} 
+
+/* Print binary tree nodes in inorder*/
+void printInorder(struct Node* node) 
+{ 
+	if (node == NULL) 
+		return; 
+
+	/* left child */
+	printInorder(node->left); 
+
+	/* print the data of node */
+	cout << node->data << " "; 
+
+	/* right child */
+	printInorder(node->right); 
+} 
+
+/* print its nodes in preorder*/
+void printPreorder(struct Node* node) 
+{ 
+	if (node == NULL) 
+		return; 
+
+	/* data of node */
+	cout << node->data << " "; 
+
+	/* left sutree */
+	printPreorder(node->left); 
+
+	/* right subtree */
+	printPreorder(node->right); 
+} 
+
+/* Mainfunction test above functions*/
+int main() 
+{ 
+	struct Node *root = new Node(1); 
+	root->left			 = new Node(2); 
+	root->right		 = new Node(3); 
+	root->left->left	 = new Node(4); 
+	root->left->right = new Node(5); 
+
+	cout << "\nPreorder traversal of binary tree is \n"; 
+	printPreorder(root); 
+
+	cout << "\nInorder traversal of binary tree is \n"; 
+	printInorder(root); 
+
+	cout << "\nPostorder traversal of binary tree is \n"; 
+	printPostorder(root); 
+
+	return 0; 
+} 
