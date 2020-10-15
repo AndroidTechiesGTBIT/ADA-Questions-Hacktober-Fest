@@ -3,7 +3,9 @@
 #include<process.h>
 #include<time.h>
 using namespace std;
-void insertionSort(int a[], int size) {
+
+#define size 100000
+void insertionSort(int a[]) {
 	int i, j, num;
 	for(j=1; j<size; j++) {
 		num = a[j];
@@ -16,21 +18,21 @@ void insertionSort(int a[], int size) {
 	}
 }
 int main() {
-	int a[100000], size=100000, ch, i;
+	int a[size], ch, i;
 	cout<<"Insertion Sort\nEnter your Choice:\n1. Best Case\n2. Worst Case\n3. Average Case\n4. Exit\t";
 	cin>>ch;
 	switch(ch) {
-		case 1: for(i=0; i<100000; i++) {
+		case 1: for(i=0; i<size; i++) {
 					a[i] = i+1;
 				}
 				break;
-		case 2: for(i=100000; i>0; i--) {
-					a[100000-i] = i;
+		case 2: for(i=size; i>0; i--) {
+					a[size-i] = i;
 				}
 				break;
 		case 3: srand(time(NULL));
-				for(i=0; i<100000; i++) {
-					a[i] = rand() % 100000 + 1;
+				for(i=0; i<size; i++) {
+					a[i] = rand() % size + 1;
 				}
 				break;
 		case 4: exit(0);
@@ -40,7 +42,7 @@ int main() {
 	}
 	clock_t start, end;
 	start = clock();
-	insertionSort(a, size);
+	insertionSort(a);
 	end = clock();
 	cout<<"Time Taken: "<<(double)(end-start)/CLK_TCK;
 }
