@@ -1,0 +1,47 @@
+https://www.geeksforgeeks.org/bits-manipulation-important-tactics/
+
+Theory from tutorials point
+Program 1:
+
+#include <iostream>
+#include <bitset>
+
+using namespace std;
+
+int main(void) {
+
+   bitset<4> b;
+
+   cout << "Before set operation b = " << b << endl;
+
+   b.set();
+
+   cout << "After set operation b = " << b << endl;
+
+   return 0;
+}
+Let us compile and run the above program, this will produce the following result −
+
+output:
+Before set operation b = 0000
+After set operation b = 1111
+
+
+Program2:
+#include <iostream>
+#include <bitset>
+
+using namespace std;
+
+int main(void) {
+
+   bitset<4> b("1110");
+
+   cout << "In bitset " << b << ", " << b.count() << " bits are set." << endl;
+
+   return 0;
+}
+Let us compile and run the above program, this will produce the following result −
+
+output:
+In bitset 1110, 3 bits are set.
